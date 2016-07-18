@@ -49,8 +49,8 @@ def underscore_key(string):
 def camelize(data):
     if isinstance(data, dict):
         new_dict = OrderedDict()
-        for k, v in data.items():
-            new_dict[camelize_key(k, False)] = camelize(v)
+        for key, value in data.items():
+            new_dict[camelize_key(str(key), False)] = camelize(value)
         return new_dict
 
     if isinstance(data, list):
@@ -66,7 +66,7 @@ def underscoreize(data):
     if isinstance(data, dict):
         new_dict = dict()
         for key, value in data.items():
-            new_dict[underscore_key(key)] = underscoreize(value)
+            new_dict[underscore_key(str(key))] = underscoreize(value)
         return new_dict
 
     if isinstance(data, list):
