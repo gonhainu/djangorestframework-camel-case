@@ -50,7 +50,7 @@ def camelize(data):
     if isinstance(data, dict):
         new_dict = OrderedDict()
         for key, value in data.items():
-            new_dict[camelize_key(str(key), False)] = camelize(value)
+            new_dict[camelize_key(str(key), True)] = camelize(value)
         return new_dict
 
     if isinstance(data, list):
